@@ -1,48 +1,59 @@
-<div class="container mt-5" style="max-width: 500px">
-  <div class="card shadow rounded-4">
+<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 500px; background: linear-gradient(to right, #ffffff, #f0f4ff);">
     <div class="card-body">
-      <h2 class="text-center mb-4">Register</h2>
+      <h2 class="text-center mb-4 text-primary fw-bold">Register</h2>
+
       <form [formGroup]="registerData" (ngSubmit)="register()">
+
         <!-- First Name -->
         <div class="mb-3">
-          <label for="firstName" class="form-label">First Name</label>
-          <input type="text" id="firstName" formControlName="firstName" class="form-control"
-            placeholder="Enter your first name" />
-            <span *ngIf="registerData.get('firstName')?.touched&&
-              registerData.get('firstName')?.invalid">Please Provide firstName</span>
+          <!-- <label for="firstName" class="form-label fw-semibold">First Name</label> -->
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-person-fill"></i></span>
+            <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Enter your first name" />
+          </div>
+          <small class="text-danger" *ngIf="registerData.get('firstName')?.touched && registerData.get('firstName')?.invalid">Please provide First Name</small>
         </div>
 
         <!-- Last Name -->
         <div class="mb-3">
-          <label for="lastName" class="form-label">Last Name</label>
-          <input type="text" id="lastName" formControlName="lastName" class="form-control"
-            placeholder="Enter your last name" />
-          <span *ngIf="registerData.get('lastName')?.touched&&
-              registerData.get('lastName')?.invalid">Please Provide lastName</span>
+          <!-- <label for="lastName" class="form-label fw-semibold">Last Name</label> -->
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-person-badge-fill"></i></span>
+            <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Enter your last name" />
+          </div>
+          <small class="text-danger" *ngIf="registerData.get('lastName')?.touched && registerData.get('lastName')?.invalid">Please provide Last Name</small>
         </div>
 
         <!-- Email -->
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email" />
-          <span *ngIf="
-              registerData.get('email')?.touched &&
-              registerData.get('email')?.invalid
-            ">Invalid Email</span>
+          <!-- <label for="email" class="form-label fw-semibold">Email</label> -->
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope-fill"></i></span>
+            <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email" />
+          </div>
+          <small class="text-danger" *ngIf="registerData.get('email')?.touched && registerData.get('email')?.invalid">Invalid Email</small>
         </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" formControlName="password" class="form-control"
-            placeholder="Enter your password" />
-          <span *ngIf="
-              registerData.get('email')?.touched &&
-              registerData.get('email')?.invalid
-            ">Invalid Password</span>
+        <!-- Password -->
+        <div class="mb-4">
+          <!-- <label for="password" class="form-label fw-semibold">Password</label> -->
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-lock-fill"></i></span>
+            <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" />
+          </div>
+          <small class="text-danger" *ngIf="registerData.get('password')?.touched && registerData.get('password')?.invalid">Invalid Password</small>
         </div>
+
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary w-100">Register</button>
-        <a routerLink="/welcome" class="text-center">Back To Home!</a>
+        <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm fw-semibold">Register</button>
+
+        <!-- Back to Home Link -->
+        <div class="text-center mt-3">
+          <a routerLink="/welcome" class="text-decoration-none text-primary fw-medium">
+            ← Back to Home
+          </a>
+        </div>
       </form>
     </div>
   </div>

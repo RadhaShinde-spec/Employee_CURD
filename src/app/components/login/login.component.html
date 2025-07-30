@@ -1,23 +1,30 @@
-
-<div class="container mt-5" style="max-width: 500px;">
-  <div class="card shadow rounded-4">
+<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 450px; background: linear-gradient(to right, #ffffff, #f0f4ff);">
     <div class="card-body">
-      <h2 class="text-center mb-4">Login</h2>
+      <h2 class="text-center mb-4 text-primary fw-bold">Login</h2>
+
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter your email" />
-
+        <div class="mb-4">
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope-fill"></i></span>
+            <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email address" />
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter your password" />
-
+        <div class="mb-4">
+          <div class="input-group">
+            <span class="input-group-text bg-primary text-white"><i class="bi bi-lock-fill"></i></span>
+            <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password" />
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-        <a routerLink="/welcome" class="text-center" >Back To Home!</a>
+        <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm fw-semibold">Login</button>
+
+        <div class="text-center mt-3">
+          <a routerLink="/welcome" class="text-decoration-none text-primary fw-medium">
+            ← Back to Home
+          </a>
+        </div>
       </form>
     </div>
   </div>
