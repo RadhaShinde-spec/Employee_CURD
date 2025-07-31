@@ -10,20 +10,12 @@
           <!-- <label for="firstName" class="form-label fw-semibold">First Name</label> -->
           <div class="input-group">
             <span class="input-group-text bg-primary text-white"><i class="bi bi-person-fill"></i></span>
-            <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Enter your first name" />
+            <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your   name" />
           </div>
-          <small class="text-danger" *ngIf="registerData.get('firstName')?.touched && registerData.get('firstName')?.invalid">Please provide First Name</small>
+          <small class="text-danger" *ngIf="registerData.get('name')?.touched && registerData.get('name')?.invalid">Please provide Name</small>
         </div>
 
-        <!-- Last Name -->
-        <div class="mb-3">
-          <!-- <label for="lastName" class="form-label fw-semibold">Last Name</label> -->
-          <div class="input-group">
-            <span class="input-group-text bg-primary text-white"><i class="bi bi-person-badge-fill"></i></span>
-            <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Enter your last name" />
-          </div>
-          <small class="text-danger" *ngIf="registerData.get('lastName')?.touched && registerData.get('lastName')?.invalid">Please provide Last Name</small>
-        </div>
+
 
         <!-- Email -->
         <div class="mb-3">

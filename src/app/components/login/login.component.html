@@ -1,24 +1,32 @@
-<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-  <div class="card shadow-lg rounded-4 p-4" style="width: 100%; max-width: 450px; background: linear-gradient(to right, #ffffff, #f0f4ff);">
+<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh">
+  <div class="card shadow-lg rounded-4 p-4" style="
+      width: 100%;
+      max-width: 450px;
+      background: linear-gradient(to right, #ffffff, #f0f4ff);
+    ">
     <div class="card-body">
       <h2 class="text-center mb-4 text-primary fw-bold">Login</h2>
 
-      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <form>
         <div class="mb-4">
           <div class="input-group">
             <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope-fill"></i></span>
-            <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email address" />
+            <input type="email" class="form-control" id="email" placeholder="Email address" name="username"
+              [(ngModel)]="userLogin.username" />
           </div>
         </div>
 
         <div class="mb-4">
           <div class="input-group">
             <span class="input-group-text bg-primary text-white"><i class="bi bi-lock-fill"></i></span>
-            <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password" />
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+              [(ngModel)]="userLogin.password" />
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm fw-semibold">Login</button>
+        <button (click)="onLogin()" class="btn btn-primary w-100 rounded-pill shadow-sm fw-semibold">
+          Login
+        </button>
 
         <div class="text-center mt-3">
           <a routerLink="/welcome" class="text-decoration-none text-primary fw-medium">
