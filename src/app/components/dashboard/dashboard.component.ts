@@ -10,11 +10,12 @@ export class DashboardComponent {
   isVisible: boolean = false;
   constructor(private service: EmployeeService) {}
 
-  users: {
-    name: string;
-    email: string;
-    password: string;
-  }[] = [];
+  // users: {
+  //   name: string;
+  //   email: string;
+  //   password: string;
+  // }[] = [];
+  users:any;
   getAll() {
     if (!this.isVisible) {
       this.service.getAll().subscribe((res) => {

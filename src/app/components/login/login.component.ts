@@ -9,20 +9,37 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private router: Router, private service: EmployeeService) {}
+  constructor(private router: Router, private service: EmployeeService) { }
 
   userLogin = {
     username: '',
     password: '',
   };
   onLogin() {
-    this.service.login(this.userLogin).subscribe((res) => {
-      console.log(res);
-      if (res) {
-        this.router.navigateByUrl('/dashboard');
+    //     const { username, password } = this.userLogin;
+    //     if (username === "admin@gmail.com" && password === "admin@123") {
+    //       this.router.navigateByUrl('/dashboard');
+    //     }
+    //     else {
+    //       this.service.login(this.userLogin).subscribe((res) => {
+    //         console.log(res);
+    //         if (res) {
+    //  this.router.navigateByUrl('/welcome');
+    //         } else {
+    //          console.log("wrong password");
+
+    //         }
+    //       });
+    //     }
+    this.service.login(this.userLogin).subscribe(res => {
+      if (res != null) {
+           console.log(res);
+        this.router.navigateByUrl('/dashboard')
       } else {
-        alert('Wrong username or password');
+         console.log(res);
+        alert("invalid credentials")
       }
-    });
+    })
+
   }
 }

@@ -1,22 +1,74 @@
 
-<h1 class="text-muted text-center">Employee List</h1>
+<!-- <h1 class="text-muted text-center">Employee List</h1> -->
+<!-- Header -->
+<header class="bg-primary text-white py-3 mb-4 shadow-sm">
+  <div class="container text-center">
+    <h1 class="m-0">Employee Management Dashboard</h1>
+  </div>
+</header>
 
-<button (click)="getAll()" type="button" class="btn btn-info" > {{ isVisible ? 'Hide Data' : 'Show Data' }}</button>
-<table *ngIf=" isVisible && users.length > 0"  class="table table-striped table-bordered table-hover">
-  <tr>
-    <th>name</th>
-    <th>email</th>
-    <th>password</th>
-  </tr>
-  <tbody class="table-striped">
-    <tr *ngFor="let item of users">
-      <td>{{ item.name }}</td>
-      <td>{{ item.email }}</td>
-      <td>{{ item.password }}</td>
-    </tr>
-  </tbody>
-</table>
-<div class="mt-4">
-   <!-- <a routerLink="/welcome">Back To Home</a> -->
-    <button routerLink="/welcome" class="btn btn-primary">Home</button>
+<!-- Main Content -->
+<main class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow rounded-4">
+        <div class="card-body">
+          <h3 class="card-title mb-3 text-center">Welcome to the Employee Management System</h3>
+          <p class="card-text text-center">
+            This application allows you to manage employee records efficiently.
+          </p>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">
+              <i class="bi bi-person-plus-fill text-success me-2"></i> Add new employees
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-pencil-square text-warning me-2"></i> Update employee details
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-card-list text-info me-2"></i> View all employees
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-trash-fill text-danger me-2"></i> Delete employee records
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+<!-- User Table -->
+<div class="table-responsive mt-4" *ngIf="isVisible && users.length > 0">
+  <table class="table table-bordered table-hover shadow rounded-4 overflow-hidden">
+    <thead class="table-primary text-center align-middle">
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody class="table-light text-center align-middle">
+      <tr *ngFor="let item of users">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name | uppercase}}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.password }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<!-- Home Button -->
+<div class="text-center mt-4 d-flex justify-content-center gap-3">
+  <button routerLink="/welcome" class="btn btn-primary px-4">
+    <i class="bi bi-house-door-fill me-2"></i>Home
+  </button>
+  <button (click)="getAll()" type="button" class="btn btn-info">
+    {{ isVisible ? 'Hide Data' : 'Show Data' }}
+  </button>
+</div>
+
+
