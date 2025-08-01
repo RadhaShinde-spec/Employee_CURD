@@ -12,6 +12,7 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MaskPasswordPipe } from './pies/mask-password.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    MaskPasswordPipe
   ],
   imports: [
     BrowserModule,
