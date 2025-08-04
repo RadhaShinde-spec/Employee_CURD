@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   // }[] = [];
   ngOnInit():void {
     this.getAll()
+
   }
   users: any;
 
@@ -40,5 +41,17 @@ export class DashboardComponent implements OnInit {
     }else{
       this.isVisible = false;
     }
+  }
+  deleteRecord(id:any){
+    alert(id);
+    this.service.deleteRecord(id).subscribe(res=>{
+      if(res){
+      console.log("got deleted");
+
+      }else{
+        console.log("something went wrong");
+
+      }
+    })
   }
 }

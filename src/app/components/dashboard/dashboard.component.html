@@ -48,6 +48,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Password</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody class="table-light text-center align-middle">
@@ -56,6 +57,12 @@
         <td>{{ item.name | uppercase}}</td>
         <td>{{ item.email }}</td>
         <td>{{ item.password | maskPassword}}</td>
+        <td>
+          <button (click)="deleteRecord(item.id)" class="btn btn-danger">Delete</button> &nbsp;&nbsp;&nbsp;
+           <a [routerLink]="['/update',item.id]" class="btn btn-success">Update</a>
+            <!-- <a  routerLink="/update">Update</a> -->
+        </td>
+
       </tr>
     </tbody>
   </table>

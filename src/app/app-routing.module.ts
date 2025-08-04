@@ -33,7 +33,8 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'update',
+    path: 'update/:id',
+    //  path: 'update',
     component: UpdateEmployeeComponent,
   },
 ];
